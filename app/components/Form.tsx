@@ -1,11 +1,13 @@
-'use client'
+'use client';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
 
 export default function Form() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState<string | null>(null);
 
     const router = useRouter();
 
@@ -15,19 +17,23 @@ export default function Form() {
         try {
             const response = await fetch('/api/login', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
             });
 
             if (!response.ok) {
-                throw new Error('Erro ao criar item no estoque');
+                const data = await response.json();
+                throw new Error(data.message || 'Usuário ou Senha Inválido');
             }
 
-            router.push('/estoque');
+            const { accessToken } = await response.json();
+
+            Cookies.set('auth_token', accessToken);
+
+            window.location.href = '/estoque';
         } catch (error) {
-            console.error('Erro ao criar item:', error);
+            setError(error instanceof Error ? error.message : 'Erro ao fazer login');
+            console.error('Erro ao fazer login:', error);
         }
     };
 
@@ -50,10 +56,8 @@ export default function Form() {
                         placeholder='Senha'
                         className='p-3 rounded-md bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500'
                     />
-                    <button
-                        type='submit'
-                        className='p-3 bg-blue-600 text-white rounded-md text-lg font-bold hover:bg-blue-700 transition-all'
-                    >
+                    {error && <div className='text-red-500 text-md text-center font-bold'>{error}</div>}
+                    <button type='submit' className='p-3 bg-blue-600 text-white rounded-md text-lg font-bold hover:bg-blue-700 transition-all'>
                         Entrar
                     </button>
                 </form>
