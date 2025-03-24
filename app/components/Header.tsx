@@ -55,11 +55,11 @@ export default function Header() {
     };
 
     return (
-        <header className="bg-yellow-600 text-white p-4 text-2xl font-bold">
+        <header className="bg-yellow-400 text-white p-4 text-2xl font-bold">
             <nav>
                 System Storage
                 <button
-                    className="float-right bg-red-700 p-2 text-base rounded-md"
+                    className="float-right bg-red-700 p-2 text-base rounded-md cursor-pointer"
                     title="Logout"
                     onClick={handleLogout}
                 >

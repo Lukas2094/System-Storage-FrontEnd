@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import Image from 'next/image';
 
 export default function Form() {
     const [email, setEmail] = useState('');
@@ -39,7 +40,16 @@ export default function Form() {
 
     return (
         <div className='flex flex-col items-center h-[542px] justify-center bg-gray-900 p-4 rounded-md'>
-            <h1 className='text-4xl text-white mb-6'>Acessar Estoque</h1>
+            <Link href="/" className='mb-5'>
+                <Image
+                    className="animate-pulse"
+                    src="/img/png/box.png"
+                    alt="Logo"
+                    width={60}
+                    height={100}
+                />
+            </Link>
+
             <div className='bg-gray-800 p-8 rounded-lg shadow-lg w-2/4'>
                 <form onSubmit={handleSubmit} className='flex flex-col space-y-4'>
                     <input
@@ -62,7 +72,7 @@ export default function Form() {
                     </button>
                 </form>
                 <div className='mt-4 text-center'>
-                    <Link href='/register' className='text-blue-400 hover:underline'>Criar conta</Link>
+                    <Link href='/login/register' className='text-blue-400 hover:underline'>Criar conta</Link>
                 </div>
             </div>
         </div>

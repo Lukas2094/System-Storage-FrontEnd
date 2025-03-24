@@ -3,16 +3,21 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
     const token = request.cookies.get('auth_token')?.value;
+    const { pathname } = request.nextUrl;
 
-    if (request.nextUrl.pathname.startsWith('/api')) {
+    if (pathname.startsWith('/login')) {
         return NextResponse.next();
     }
 
-    if (!token && request.nextUrl.pathname !== '/') {
-        return NextResponse.redirect(new URL('/', request.url));
+    if (pathname.startsWith('/api')) {
+        return NextResponse.next();
     }
 
-    if (token && request.nextUrl.pathname === '/') {
+    if (!token) {
+        return NextResponse.redirect(new URL('/login', request.url));
+    }
+
+    if (token && pathname.startsWith('/login')) {
         return NextResponse.redirect(new URL('/estoque', request.url));
     }
 
