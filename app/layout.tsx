@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Sidebar from './components/SideBar';
 import { cookies } from 'next/headers';
+import Header from './components/Header';
 
 export const metadata: Metadata = {
   title: 'Sistema de Estoque',
@@ -18,9 +19,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         {token ? <Sidebar /> : null}
         <main className="flex-1">
           {token && (
-            <header className="bg-yellow-500 text-white p-4 text-2xl font-bold">
-              System Storage
-            </header>
+            <Header />
           )}
           <div className="p-5">{children}</div>
         </main>

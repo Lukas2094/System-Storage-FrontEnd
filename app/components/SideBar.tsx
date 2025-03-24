@@ -16,7 +16,7 @@ export default function Sidebar() {
 
     return (
         <aside
-            className={`w-20 ${isHovered || !isMenuMinimized ? 'w-64' : 'w-20'} bg-yellow-500 text-white h-screen p-5 flex flex-col transition-all duration-300`}
+            className={`w-20 ${isHovered || !isMenuMinimized ? 'w-64' : 'w-20'} bg-yellow-600 text-white h-screen p-5 flex flex-col transition-all duration-300`}
             onMouseEnter={() => setIsHovered(true)} 
             onMouseLeave={() => setIsHovered(false)} 
         >
