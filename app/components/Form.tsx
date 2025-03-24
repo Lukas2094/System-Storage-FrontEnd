@@ -72,6 +72,9 @@ export default function Form() {
                     </button>
                 </form>
                 <div className='mt-4 text-center'>
+                    <Link href='/login/password' className='text-blue-400 hover:underline'>Recuperar Senha</Link>
+                </div>
+                <div className='mt-4 text-center'>
                     <Link href='/login/register' className='text-blue-400 hover:underline'>Criar conta</Link>
                 </div>
             </div>
