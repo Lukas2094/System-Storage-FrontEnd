@@ -31,7 +31,7 @@ export default function Form() {
 
             Cookies.set('auth_token', accessToken);
 
-            window.location.href = '/estoque';
+            window.location.href = '/';
         } catch (error) {
             setError(error instanceof Error ? error.message : 'Erro ao fazer login');
             console.error('Erro ao fazer login:', error);

@@ -1,4 +1,3 @@
-// app/estoque/criar/page.tsx
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -14,7 +13,6 @@ export default function CriarEstoque() {
     e.preventDefault();
 
     try {
-      // Faz a requisição para o route handler do Next.js
       const response = await fetch('/api/estoques', {
         method: 'POST',
         headers: {
@@ -34,10 +32,10 @@ export default function CriarEstoque() {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center h-screen bg-gray-100'>
-      <h1 className='text-3xl font-bold mb-6 text-green-700'>Criar Novo Item</h1>
-      <form onSubmit={handleSubmit} className='w-full max-w-md bg-white p-8 shadow-md rounded-lg'>
-        <div className='mb-4'>
+    <div className='flex flex-col items-center justify-center bg-gray-100 p-6 rounded-md'>
+      <h1 className='text-3xl font-bold mb-2 text-black'>Criar Novo Item</h1>
+      <form onSubmit={handleSubmit} className='w-full max-w-md bg-white p-4 shadow-md rounded-lg'>
+        <div className=''>
           <label className='block text-sm font-medium text-gray-700'>Nome:</label>
           <input
             type='text'

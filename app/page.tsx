@@ -1,9 +1,9 @@
-import Form from './components/Form/Form';
+import Reports from "./components/Reports/Reports";
 
 export default function Home() {
   return (
     <>
-      Home Page
+      <Reports />
     </>
   );
 }

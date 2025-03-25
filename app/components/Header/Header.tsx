@@ -1,4 +1,5 @@
 'use client';
+import Link from "next/link";
 import { IoMdLogOut } from "react-icons/io";
 
 const getTokenFromCookies = () => {
@@ -22,7 +23,7 @@ const clearAllCookies = () => {
     });
 };
 
-export default function Header() {
+export default function Header() {  
     const handleLogout = async () => {
         try {
             const token = getTokenFromCookies();
@@ -56,15 +57,24 @@ export default function Header() {
 
     return (
         <header className="bg-yellow-400 text-white p-4 text-2xl font-bold">
-            <nav>
+            <nav className="inline-flex items-center justify-between w-full">
                 System Storage
-                <button
-                    className="float-right bg-red-700 p-2 text-base rounded-md cursor-pointer"
-                    title="Logout"
-                    onClick={handleLogout}
-                >
-                    <IoMdLogOut />
-                </button>
+
+                <div className="flex items-center h-[40px]">
+                    <Link className='text-2xl text-white font-bold m-5' href="/estoque/criar">
+                        <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>
+                            Criar Novo Item
+                        </button>
+                    </Link>
+                    <button
+                        className="float-right bg-red-700 p-2 text-base rounded-md cursor-pointer"
+                        title="Logout"
+                        onClick={handleLogout}
+                    >
+                        <IoMdLogOut />
+                    </button> 
+                </div>
+          
             </nav>
         </header>
     );
