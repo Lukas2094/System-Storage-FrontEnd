@@ -1,9 +1,9 @@
 // src/app/layout.tsx
 import type { Metadata } from 'next';
 import './globals.css';
-import Sidebar from './components/SideBar';
+import Sidebar from './components/Sidebar/SideBar';
 import { cookies } from 'next/headers';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 
 export const metadata: Metadata = {
   title: 'Sistema de Estoque',

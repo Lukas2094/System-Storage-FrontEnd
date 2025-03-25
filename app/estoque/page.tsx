@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { fetchEstoque } from '../api/functions/getEstoque';
 import { FaEdit, FaExternalLinkSquareAlt, FaTrash } from 'react-icons/fa'; // Ícones de editar e deletar
 import { useEffect, useState } from 'react';
-import EditarModal from '../components/Modal';
+import EditarModal from '../components/Modal/Modal';
 import { Estoque } from '@/public/interfaces/Estoques';
 
 

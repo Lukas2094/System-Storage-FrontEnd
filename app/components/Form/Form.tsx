@@ -40,7 +40,7 @@ export default function Form() {
 
     return (
         <div className='flex flex-col items-center h-[542px] justify-center bg-gray-900 p-4 rounded-md'>
-            <Link href="/" className='mb-5'>
+            <Link href="/login" className='mb-5'>
                 <Image
                     className="animate-pulse"
                     src="/img/png/box.png"
