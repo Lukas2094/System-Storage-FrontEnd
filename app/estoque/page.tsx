@@ -1,8 +1,8 @@
 // app/estoque/page.tsx
-'use client'; // Adicione 'use client' para usar hooks e estado
+'use client'; 
 import Link from 'next/link';
 import { fetchEstoque } from '../api/functions/getEstoque';
-import { FaEdit, FaExternalLinkSquareAlt, FaTrash } from 'react-icons/fa'; // Ícones de editar e deletar
+import { FaEdit, FaExternalLinkSquareAlt, FaTrash } from 'react-icons/fa'; 
 import { useEffect, useState } from 'react';
 import EditarModal from '../components/Modal/Modal';
 import { Estoque } from '@/public/interfaces/Estoques';
@@ -71,12 +71,12 @@ export default function EstoquePage() {
 
     return (
         <div className='flex flex-col items-center p-9 bg-gray-100 rounded-2xl'>
-            <h1 className='text-5xl m-5 text-amber-700 font-extrabold underline'>Estoque</h1>
-            <Link className='text-2xl text-white font-bold m-5' href="/estoque/criar">
+            <h1 className='text-5xl m-8 text-amber-700 font-extrabold underline'>Estoque</h1>
+            {/* <Link className='text-2xl text-white font-bold m-5' href="/estoque/criar">
                 <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-2xl'>
                     Criar Novo Item
                 </button>
-            </Link>
+            </Link> */}
 
             {/* Tabela de Estoque */}
             <div className='w-full max-w-4xl bg-white shadow-md rounded-lg overflow-hidden'>
