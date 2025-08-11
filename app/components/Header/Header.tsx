@@ -56,7 +56,7 @@ export default function Header() {
     };
 
     return (
-        <header className="bg-yellow-400 text-white p-4 text-2xl font-bold">
+        <header className="bg-blue-900 text-white p-4 text-2xl font-bold">
             <nav className="inline-flex items-center justify-between w-full">
                 System Storage
 
